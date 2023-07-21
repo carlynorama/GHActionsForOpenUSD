@@ -1,6 +1,6 @@
 
 
-name: Update and Install apt-get
+name: Python - Install and Print
 
 runs:
   using: "composite"
