@@ -24,7 +24,7 @@ jobs:
     steps:
       - name: Checkout This Repo
         uses: actions/checkout@v3
-      - name: apt-get setup
+      - name: apt-get setup 
         uses: carlynorama/GHActionsForOpenUSD/actions/apt_get_update_install
       - name: Restore OpenUSD (Repo and Build)
         id: cache-openusd-restore
