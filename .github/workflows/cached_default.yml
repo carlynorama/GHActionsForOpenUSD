@@ -27,7 +27,7 @@ jobs:
       - name: apt-get setup
         uses: ./actions/hello_action
       - name: apt-get setup
-        uses: carlynorama/GHActionsForOpenUSD/actions/hello_action
+        uses: carlynorama/GHActionsForOpenUSD/actions/hello_action@main
     #   - name: Restore OpenUSD (Repo and Build)
     #     id: cache-openusd-restore
     #     uses: actions/cache/restore@v3
