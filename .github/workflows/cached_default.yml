@@ -33,7 +33,7 @@ jobs:
           pip install PySide6==6.4.3
           pip install numpy
       - name: make requirements file
-        run: pip freeze > requirements.txt
+        run: pip freeze
       - name: Restore OpenUSD (Repo and Build)
         id: cache-openusd-restore
         uses: actions/cache/restore@v3
