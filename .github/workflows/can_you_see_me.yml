@@ -1,15 +1,6 @@
-# see https://github.com/pablode/USD/blob/v22.11-ci/.github/workflows/deploy-release.yml
-# https://github.com/usd-wg/assets/pull/49
-# https://github.com/usd-wg/assets/pull/48 
+# Proof of concept
 
-# About Ubuntu-Latest
-# https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners
-# https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md
-
-# About Cache Actions
-# https://github.com/marketplace/actions/cache
-
-name: Build Linux
+name: Can you see me?
 
 on:
   push:

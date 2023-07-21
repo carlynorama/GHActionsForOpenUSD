@@ -25,7 +25,7 @@ jobs:
       - name: Checkout This Repo
         uses: actions/checkout@v3
       - name: apt-get setup 
-        uses: carlynorama/GHActionsForOpenUSD/actions/apt_get_update_install
+        uses: carlynorama/GHActionsForOpenUSD/actions/apt_get_update_install@main
       - name: Restore OpenUSD (Repo and Build)
         id: cache-openusd-restore
         uses: actions/cache/restore@v3
@@ -36,7 +36,7 @@ jobs:
           key: ${{ runner.os }}-openusdnp
       - name: Build Fresh No Python
         if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
-        uses: carlynorama/GHActionsForOpenUSD/actions/clone_and_build_no_python
+        uses: carlynorama/GHActionsForOpenUSD/actions/clone_and_build_no_python@main
       - name: Use Cached Build
         if: steps.cache-openusd-restore.outputs.cache-hit == 'true'
         run: |
