@@ -43,10 +43,10 @@ jobs:
             OpenUSD_BUILD_DEFAULT
           key: ${{ runner.os }}-openusddf
       - name: Build Fresh
-        if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
+        if: steps.cache-openusddf-restore.outputs.cache-hit != 'true'
         uses: carlynorama/GHActionsForOpenUSD/actions/clone_and_build_default@main
       - name: Use Cached Build
-        if: steps.cache-openusd-restore.outputs.cache-hit == 'true'
+        if: steps.cache-openusddf-restore.outputs.cache-hit == 'true'
         run: |
           echo "USD_REPO_DIR=$PWD/OpenUSD_REPO" >> $GITHUB_ENV
           echo "USD_BUILD_DIR=$PWD/OpenUSD_BUILD_DEFAULT" >> $GITHUB_ENV
@@ -74,7 +74,7 @@ jobs:
           key: ${{ steps.cache-openusddf-restore.outputs.cache-primary-key }}   
       # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path
       - name: Confirms Runs
-      # if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
+      # if: steps.cache-openusddf-restore.outputs.cache-hit != 'true'
         run: |
             $USD_BUILD_DIR/bin/usdcat -h
       - name: Add OpenUSD Build to PATH and PYTHONPATH
