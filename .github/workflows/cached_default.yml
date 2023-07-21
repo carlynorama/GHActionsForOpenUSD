@@ -42,7 +42,7 @@ jobs:
             OpenUSD_REPO
             OpenUSD_BUILD_DEFAULT
           key: ${{ runner.os }}-openusddf
-      - name: Build Fresh No Python
+      - name: Build Fresh
         if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
         uses: carlynorama/GHActionsForOpenUSD/actions/clone_and_build_default@main
       - name: Use Cached Build

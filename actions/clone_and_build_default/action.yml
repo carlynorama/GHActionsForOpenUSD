@@ -12,7 +12,7 @@ runs:
       run: |
         echo "USD_REPO_DIR=$PWD/OpenUSD_REPO" >> $GITHUB_ENV
       shell: bash
-    - name: Build USD (no python)
+    - name: Build USD
       run: |
         python $USD_REPO_DIR/build_scripts/build_usd.py OpenUSD_BUILD_DEFAULT
         echo "USD_BUILD_DIR=$PWD/OpenUSD_BUILD_DEFAULT" >> $GITHUB_ENV
