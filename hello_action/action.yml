@@ -1,9 +1,0 @@
-
-name: Example External Script
-
-runs:
-  using: "composite"
-  steps:
-    - name: Message
-      run: echo "Nya-ha-ha! You Found Me!"
-      shell: "bash"
