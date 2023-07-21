@@ -36,7 +36,7 @@ jobs:
 
 ### GitHub Docs
 
-- Python Setup and Cacheing - https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+- Python Setup and Caching - https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
 - Caching effects
   - https://github.com/actions/cache
   - https://github.com/marketplace/actions/cache
