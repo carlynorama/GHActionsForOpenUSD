@@ -22,4 +22,4 @@ runs:
       - name: Install
         shell: bash
         run: |
-          pip install install carlynorama/GHActionsForOpenUSD/actions/python_cached_setup/requirements.txt@main
+          pip install install -r carlynorama/GHActionsForOpenUSD/actions/python_cached_setup/requirements.txt@main
