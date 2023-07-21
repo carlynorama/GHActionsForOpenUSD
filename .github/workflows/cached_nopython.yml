@@ -27,7 +27,7 @@ jobs:
       - name: apt-get setup 
         uses: carlynorama/GHActionsForOpenUSD/actions/apt_get_update_install@main
       - name: Restore OpenUSD (Repo and Build)
-        id: cache-openusd-restore
+        id: cache-openusdnp-restore
         uses: actions/cache/restore@v3
         with:
           path: |
