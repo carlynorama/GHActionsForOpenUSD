@@ -13,5 +13,6 @@ runs:
           pip install numpy
         shell: bash
       - name: make requirements file
-        run: pip freeze > requirements.txt
+        #run: pip freeze > requirements.txt
+        run: pip freeze
         shell: bash
