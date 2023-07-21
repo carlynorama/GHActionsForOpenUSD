@@ -20,4 +20,4 @@ runs:
           python -m pip install --upgrade pip
       - name: Install
         run: |
-          pip install install carlynorama/GHActionsForOpenUSD/actions/python_cached_setup/
+          pip install install carlynorama/GHActionsForOpenUSD/actions/python_cached_setup/requirements.txt
