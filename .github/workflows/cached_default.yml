@@ -9,7 +9,7 @@
 # About Cache Actions
 # https://github.com/marketplace/actions/cache
 
-name: Build Linux
+name: Run on Default Flavor
 
 on:
   push:
@@ -19,7 +19,7 @@ on:
       
 jobs:
   build:
-    name: Build Linux
+    name: Try Default
     runs-on: ubuntu-latest
     steps:
       - name: Checkout This Repo
@@ -36,7 +36,7 @@ jobs:
           key: ${{ runner.os }}-openusddf
       - name: Build Fresh No Python
         if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
-        uses: carlynorama/GHActionsForOpenUSD/actions/clone_and_build_no_python@main
+        uses: carlynorama/GHActionsForOpenUSD/actions/clone_and_build_default@main
       - name: Use Cached Build
         if: steps.cache-openusd-restore.outputs.cache-hit == 'true'
         run: |
