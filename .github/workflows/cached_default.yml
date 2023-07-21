@@ -35,14 +35,14 @@ jobs:
       - name: make requirements file
         run: pip freeze
       - name: Restore OpenUSD (Repo and Build)
-        id: cache-openusd-restore
+        id: cache-openusddf-restore
         uses: actions/cache/restore@v3
         with:
           path: |
             OpenUSD_REPO
             OpenUSD_BUILD_DEFAULT
           key: ${{ runner.os }}-openusddf
-      - name: Build Fresh No Python
+      - name: Build Fresh
         if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
         uses: carlynorama/GHActionsForOpenUSD/actions/clone_and_build_default@main
       - name: Use Cached Build
