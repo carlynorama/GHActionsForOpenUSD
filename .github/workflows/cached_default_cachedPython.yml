@@ -7,7 +7,7 @@
 ##
 
 
-name: Run on Default Flavor
+name: Run on Default Flavor (Cached Python)
 
 on:
   push:
@@ -17,7 +17,7 @@ on:
       
 jobs:
   build:
-    name: Try Default
+    name: Try Default (Cached Python)
     runs-on: ubuntu-latest
     steps:
       - name: Checkout This Repo
