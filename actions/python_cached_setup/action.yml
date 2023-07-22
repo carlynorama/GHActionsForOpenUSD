@@ -1,3 +1,10 @@
+##
+## GitHub Actions File
+## https://github.com/carlynorama/GHActionsForOpenUSD/
+##
+## actions/python_cached_setup/action.yml
+## Carlyn Maw 2023 Jul 21
+##
 
 
 name: Cached Python Setup
@@ -5,7 +12,7 @@ name: Cached Python Setup
 runs:
   using: "composite"
   steps:
-      # https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
+
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
@@ -14,7 +21,7 @@ runs:
           cache: 'pip' # caching pip dependencies
           # Cacheing, by default, pins itself to changes in requirements.txt
           # I'm testing what overriding that means
-          cache-dependency-path: carlynorama/GHActionsForOpenUSD/actions/python_cached_setup/requirements.txt@main
+          cache-dependency-path: carlynorama/GHActionsForOpenUSD/actions/python_cached_setup/requirements.txt
       - name: Upgrade
         shell: bash
         run: |
@@ -22,4 +29,4 @@ runs:
       - name: Install
         shell: bash
         run: |
-          pip install install -r carlynorama/GHActionsForOpenUSD/actions/python_cached_setup/requirements.txt@main
+          pip install install -r carlynorama/GHActionsForOpenUSD/actions/python_cached_setup/requirements.txt

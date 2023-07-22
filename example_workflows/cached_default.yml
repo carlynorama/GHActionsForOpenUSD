@@ -1,47 +1,53 @@
-# see https://github.com/pablode/USD/blob/v22.11-ci/.github/workflows/deploy-release.yml
-# https://github.com/usd-wg/assets/pull/49
-# https://github.com/usd-wg/assets/pull/48 
+##
+## GitHub Actions File
+## https://github.com/carlynorama/GHActionsForOpenUSD/
+##
+## example_workflows/cached_default.yml
+## Carlyn Maw 2023 Jul 21
+##
 
-# About Ubuntu-Latest
-# https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners
-# https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md
 
-# About Cache Actions
-# https://github.com/marketplace/actions/cache
-
-name: Build Linux
+name: Run on Default Flavor
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "default_build_test" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "default_build_test" ]
       
 jobs:
   build:
-    name: Build Linux
+    name: Try Default
     runs-on: ubuntu-latest
     steps:
       - name: Checkout This Repo
         uses: actions/checkout@v3
-      - name: apt-get setup 
+      - name: apt-get setup
         uses: carlynorama/GHActionsForOpenUSD/actions/apt_get_update_install@main
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install install PyOpenGL
+          pip install PySide6==6.4.3
+          pip install numpy
+      - name: make requirements file
+        run: pip freeze
       - name: Restore OpenUSD (Repo and Build)
-        id: cache-openusdnp-restore
+        id: cache-openusddf-restore
         uses: actions/cache/restore@v3
         with:
           path: |
             OpenUSD_REPO
-            OpenUSD_BUILD_NOPYTHON
-          key: ${{ runner.os }}-openusdnp
-      - name: Build Fresh No Python
-        if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
-        uses: carlynorama/GHActionsForOpenUSD/actions/clone_and_build_no_python@main
+            OpenUSD_BUILD_DEFAULT
+          key: ${{ runner.os }}-openusddf
+      - name: Build Fresh
+        if: steps.cache-openusddf-restore.outputs.cache-hit != 'true'
+        uses: carlynorama/GHActionsForOpenUSD/actions/clone_and_build_default@main
       - name: Use Cached Build
-        if: steps.cache-openusd-restore.outputs.cache-hit == 'true'
+        if: steps.cache-openusddf-restore.outputs.cache-hit == 'true'
         run: |
           echo "USD_REPO_DIR=$PWD/OpenUSD_REPO" >> $GITHUB_ENV
-          echo "USD_BUILD_DIR=$PWD/OpenUSD_BUILD_NOPYTHON" >> $GITHUB_ENV
+          echo "USD_BUILD_DIR=$PWD/OpenUSD_BUILD_DEFAULT" >> $GITHUB_ENV
       - name: Tell me about Environement
         run: |
           echo "-----"
@@ -57,16 +63,16 @@ jobs:
           echo .env
           echo "-----"
       - name: Save OpenUSD Cache (Repo & Build)
-        id: cache-openusdnp-save
+        id: cache-openusddf-save
         uses: actions/cache/save@v3
         with:
           path: |
             OpenUSD_REPO
-            OpenUSD_BUILD_NOPYTHON
-          key: ${{ steps.cache-openusdnp-restore.outputs.cache-primary-key }}   
+            OpenUSD_BUILD_DEFAULT
+          key: ${{ steps.cache-openusddf-restore.outputs.cache-primary-key }}   
       # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path
       - name: Confirms Runs
-      # if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
+      # if: steps.cache-openusddf-restore.outputs.cache-hit != 'true'
         run: |
             $USD_BUILD_DIR/bin/usdcat -h
       - name: Add OpenUSD Build to PATH and PYTHONPATH
@@ -85,3 +91,5 @@ jobs:
           ls $USD_BUILD_DIR/bin/
           echo "-----"
           usdcat -h
+
+

@@ -1,3 +1,10 @@
+##
+## GitHub Actions File
+## https://github.com/carlynorama/GHActionsForOpenUSD/
+##
+## actions/hello_action/action.yml
+## Carlyn Maw 2023 Jul 21
+##
 
 name: Example External Script
 

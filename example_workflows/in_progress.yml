@@ -1,22 +1,10 @@
-# see https://github.com/pablode/USD/blob/v22.11-ci/.github/workflows/deploy-release.yml
-# https://github.com/usd-wg/assets/pull/49
-# https://github.com/usd-wg/assets/pull/48 
-
-# About Ubuntu-Latest
-# https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners
-# https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md
-
-# About Cache Actions
-# https://github.com/marketplace/actions/cache
-
-
-###################
-#
-# Full install, no caching works in confirmed_works folder as 
-# no_caching_full_works_one_file.yml
-#
-###################
-
+##
+## GitHub Actions File
+## https://github.com/carlynorama/GHActionsForOpenUSD/
+##
+## example_workflows/in_progress.yml
+## Carlyn Maw 2023 Jul 21
+##
 
 
 name: Build Linux

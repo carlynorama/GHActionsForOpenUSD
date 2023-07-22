@@ -1,13 +1,10 @@
-# see https://github.com/pablode/USD/blob/v22.11-ci/.github/workflows/deploy-release.yml
-# https://github.com/usd-wg/assets/pull/49
-# https://github.com/usd-wg/assets/pull/48 
-
-# About Ubuntu-Latest
-# https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners
-# https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md
-
-# About Cache Actions
-# https://github.com/marketplace/actions/cache
+##
+## GitHub Actions File
+## https://github.com/carlynorama/GHActionsForOpenUSD/
+##
+## cached_nopython.yml
+## Carlyn Maw 2023 Jul 21
+##
 
 name: Build Linux
 
@@ -35,10 +32,10 @@ jobs:
             OpenUSD_BUILD_NOPYTHON
           key: ${{ runner.os }}-openusdnp
       - name: Build Fresh No Python
-        if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
+        if: steps.cache-openusdnp-restore.outputs.cache-hit != 'true'
         uses: carlynorama/GHActionsForOpenUSD/actions/clone_and_build_no_python@main
       - name: Use Cached Build
-        if: steps.cache-openusd-restore.outputs.cache-hit == 'true'
+        if: steps.cache-openusdnp-restore.outputs.cache-hit == 'true'
         run: |
           echo "USD_REPO_DIR=$PWD/OpenUSD_REPO" >> $GITHUB_ENV
           echo "USD_BUILD_DIR=$PWD/OpenUSD_BUILD_NOPYTHON" >> $GITHUB_ENV
@@ -66,7 +63,7 @@ jobs:
           key: ${{ steps.cache-openusdnp-restore.outputs.cache-primary-key }}   
       # https://docs.github.com/en/actions/using-workflows/workflow-commands-for-github-actions#adding-a-system-path
       - name: Confirms Runs
-      # if: steps.cache-openusd-restore.outputs.cache-hit != 'true'
+      # if: steps.cache-openusdnp-restore.outputs.cache-hit != 'true'
         run: |
             $USD_BUILD_DIR/bin/usdcat -h
       - name: Add OpenUSD Build to PATH and PYTHONPATH

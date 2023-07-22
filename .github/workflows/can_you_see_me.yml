@@ -1,4 +1,10 @@
-# Proof of concept
+##
+## GitHub Actions File
+## https://github.com/carlynorama/GHActionsForOpenUSD/
+##
+## can_you_see_me.yml
+## Carlyn Maw 2023 Jul 21
+##
 
 name: Can you see me?
 

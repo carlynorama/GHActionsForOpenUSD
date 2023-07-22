@@ -1,6 +1,13 @@
+##
+## GitHub Actions File
+## https://github.com/carlynorama/GHActionsForOpenUSD/
+##
+## actions/python_install_pip_freeze/action.yml
+## Carlyn Maw 2023 Jul 21
+##
 
 
-name: Update and Install apt-get
+name: Python - Install and Print
 
 runs:
   using: "composite"
