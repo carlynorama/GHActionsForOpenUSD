@@ -1,1 +1,2 @@
-This one seems to struggle when called remotely. 
+Python caching seems to struggle to be done remotely.
+This action provided for reference.

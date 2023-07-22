@@ -110,12 +110,19 @@ jobs:
       - name: Confirm in Path
         run: |
           echo "----- START Did it work?"
-          echo $USD_BUILD_DIR
-          echo $PYTHONPATH
+          pwd  
+          ls
+          which python3
+          python3 --version
+          which python
+          python --version
+          echo $GITHUB_WORKSPACE
           echo $PATH
           echo $GITHUB_PATH
           echo $GITHUB_ENV
+          echo $PYTHONPATH
           echo "-----"
           usdcat -h
+          $USD_BUILD_DIR/bin/usdcat -h
       #### ----------------------  REPO SPECIFIC CODE --------------------------
       ## If did not check out repo already, do so now. 

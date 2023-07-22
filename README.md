@@ -55,3 +55,22 @@ jobs:
 - https://github.com/usd-wg/assets/pull/48 
 
 
+## Handy Snippet
+
+```sh
+          echo "-----"
+          pwd  
+          ls
+          which python3
+          python3 --version
+          which python
+          python --version
+          echo $GITHUB_WORKSPACE
+          echo $PATH
+          echo $GITHUB_PATH
+          echo $GITHUB_ENV
+          echo $PYTHONPATH
+          echo "-----"
+          $USD_BUILD_DIR/bin/usdcat -h
+          usdcat -h
+```
