@@ -2,6 +2,8 @@
 
 Reusable GitHub Actions for OpenUSD
 
+Motivation: https://www.whynotestflight.com/excuses/hello-usd-part-15-can-a-github-action-cache-a-openusd-build/
+
 
 ## Usage
 
