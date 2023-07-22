@@ -21,7 +21,7 @@ runs:
           cache: 'pip' # caching pip dependencies
           # Cacheing, by default, pins itself to changes in requirements.txt
           # I'm testing what overriding that means
-          cache-dependency-path: carlynorama/GHActionsForOpenUSD/actions/python_cached_setup/requirements.txt
+          cache-dependency-path: carlynorama/GHActionsForOpenUSD/actions/python_cached_setup/requirements.txt@default_build_test
       - name: Upgrade
         shell: bash
         run: |
@@ -29,4 +29,4 @@ runs:
       - name: Install
         shell: bash
         run: |
-          pip install install -r carlynorama/GHActionsForOpenUSD/actions/python_cached_setup/requirements.txt
+          pip install install -r carlynorama/GHActionsForOpenUSD/actions/python_cached_setup/requirements.txt@default_build_test

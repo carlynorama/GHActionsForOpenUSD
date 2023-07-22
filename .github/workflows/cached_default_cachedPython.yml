@@ -25,7 +25,7 @@ jobs:
       - name: apt-get setup
         uses: carlynorama/GHActionsForOpenUSD/actions/apt_get_update_install@main
       - name: Setup and cache python
-        uses: carlynorama/GHActionsForOpenUSD/actions/python_cached_setup@main
+        uses: carlynorama/GHActionsForOpenUSD/actions/python_cached_setup@default_build_test
       - name: Restore OpenUSD (Repo and Build)
         id: cache-openusddf-restore
         uses: actions/cache/restore@v3
