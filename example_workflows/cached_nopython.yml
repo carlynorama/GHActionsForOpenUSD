@@ -1,10 +1,10 @@
-
-# About Ubuntu-Latest
-# https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners
-# https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2204-Readme.md
-
-# About Cache Actions
-# https://github.com/marketplace/actions/cache
+##
+## GitHub Actions File
+## https://github.com/carlynorama/GHActionsForOpenUSD/
+##
+## example_workflows/cached_nopython.yml
+## Carlyn Maw 2023 Jul 21
+##
 
 name: Build Linux
 

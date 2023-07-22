@@ -1,3 +1,11 @@
+##
+## GitHub Actions File
+## https://github.com/carlynorama/GHActionsForOpenUSD/
+##
+## actions/clone_repo/action.yml
+## Carlyn Maw 2023 Jul 21
+##
+
 name: Build Fresh No Python
 
 runs:
